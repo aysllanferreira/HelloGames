@@ -56,11 +56,17 @@ def fetch_games():
 
 def hello(event, context):
     games_data = fetch_games()
+    allowed_origins = ['http://localhost:3000', 'https://hello-games.vercel.app/']
+    origin = event['headers'].get('origin') if 'headers' in event and 'origin' in event['headers'] else 'unknown'
+    if origin in allowed_origins:
+        cors_origin = origin
+    else:
+        cors_origin = allowed_origins[0]
     response = {
         "statusCode": 200,
         "body": json.dumps(games_data),
         "headers": {
-            'Access-Control-Allow-Origin': 'http://localhost:3000',
+            'Access-Control-Allow-Origin': cors_origin,
             'Access-Control-Allow-Credentials': True,
         }
     }

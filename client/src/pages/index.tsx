@@ -33,7 +33,7 @@ export default function Home() {
         <title>Hello Games</title>
       </Head>
       <main className="flex flex-col items-center justify-center h-screen bg-gray-100">
-        <h1 className="text-4xl font-semibold mt-12 mb-12">Games of {date}</h1>
+        {data && <h1 className="text-4xl font-semibold mt-12 mb-12">Games of {date}</h1>}
         {data ? (
           <div className="overflow-auto w-full md:w-2/3 lg:w-[50%]">
             <table className="table-auto w-full bg-white">
