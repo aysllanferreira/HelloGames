@@ -1,0 +1,30 @@
+service: fetchGames
+
+useDotenv: true
+
+frameworkVersion: '3'
+plugins:
+  - serverless-dotenv-plugin
+  - serverless-offline
+  - serverless-python-requirements
+
+provider:
+  name: aws
+  runtime: python3.9
+  environment:
+    WEB_URL: ${env:WEB_URL}
+
+functions:
+  hello:
+    handler: handler.hello
+    events:
+      - httpApi:
+          path: /
+          method: get
+          cors: true
+
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
+    slim: true

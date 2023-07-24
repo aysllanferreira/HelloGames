@@ -1,0 +1,21 @@
+# Environment variables
+.env
+
+# Node.js dependencies
+node_modules
+package-lock.json
+
+# Python virtual environment
+venv
+
+# VS Code settings
+.vscode
+
+# Serverless framework
+.serverless
+
+# Mypy cache directory
+.mypy_cache
+
+# Python cache files
+__pycache__
