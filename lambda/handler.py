@@ -56,7 +56,7 @@ def fetch_games():
 
 def hello(event, context):
     games_data = fetch_games()
-    allowed_origins = ['http://localhost:3000', 'https://hello-games.vercel.app/']
+    allowed_origins = ['http://localhost:3000', 'https://hello-games.vercel.app']
     origin = event['headers'].get('origin') if 'headers' in event and 'origin' in event['headers'] else 'unknown'
     if origin in allowed_origins:
         cors_origin = origin
